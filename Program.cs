@@ -10,11 +10,16 @@ namespace infinite {
             //           Infinite.Cartesian(Enumerable.Range(1, 3), Enumerable.Range(101, 3)).ForEach(x => Console.WriteLine(x));
 
             //            Infinite.Diagonal(Enumerable.Range(1, 2), Enumerable.Range(1, 5)).ForEach(x => Console.WriteLine(x));
+
+            //すごいHaskell楽しく学ぼうの三角形の例(一部改変)
+            // 辺abcからなり、ab間が直角な三角形で
+            // 周の長さが24なものをひとつ示す
             var triangle = Infinite.Diagonal(Infinite.Pos(), Infinite.Pos(), Infinite.Pos())
                 .Where(x => x.Item1 * x.Item1 + x.Item2 * x.Item2 == x.Item3 * x.Item3)
                 .Where(x => x.Item1 + x.Item2 + x.Item3 == 24)
                 .First();
 
+            // (6, 8, 10)が表示される
             Console.WriteLine(triangle);
 
         }
